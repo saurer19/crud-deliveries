@@ -1,0 +1,9 @@
+.container{
+  margin:10px auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+.title{
+  text-align: center;
+}
