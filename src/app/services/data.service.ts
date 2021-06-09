@@ -18,14 +18,14 @@ export class DataService {
   }
 
   public getOne$(id): Observable<Delivery> {
-    return this.http.get<Delivery>(`${this.API_URL}/${id}`).pipe(tap(console.log));
+    return this.http.get<Delivery>(`${this.API_URL}/${id}`);
   }
 
   public remove$(id: number): Observable<any> {
-    return this.http.delete(`${this.API_URL}/${id}`).pipe(tap(console.log));
+    return this.http.delete(`${this.API_URL}/${id}`);
   }
 
   public edit$(id: number, delivery: Delivery): Observable<any> {
-    return this.http.put(`${this.API_URL}/${id}`, delivery).pipe(tap(console.log));
+    return this.http.put(`${this.API_URL}/${id}`, delivery);
   }
 }

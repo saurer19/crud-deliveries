@@ -28,7 +28,7 @@
 
 }
 .actions{
-  padding-top: 10px;
+  padding-top: 50px;
   display: flex;
 }
 input {
@@ -51,4 +51,7 @@ input {
 .error{
   color:red;
   padding-bottom: 10px;
+}
+.container{
+  padding: 0 10px;
 }

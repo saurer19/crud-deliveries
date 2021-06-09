@@ -7,6 +7,7 @@ import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
 import { DetailComponent } from './detail/detail.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DeliveryCardComponent,
     DetailComponent,
     DeliveryListComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
