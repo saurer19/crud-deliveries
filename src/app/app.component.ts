@@ -9,6 +9,7 @@ import {Delivery} from './services/delivery.interface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public title = 'TACO LOCO'
   constructor() {
   }
 

@@ -1,0 +1,3 @@
+<ng-container *ngFor="let delivery of deliveryList$ | async">
+  <app-delivery-card [delivery]="delivery" (emitDelete)="deleteDelivery($event)"></app-delivery-card>
+</ng-container>

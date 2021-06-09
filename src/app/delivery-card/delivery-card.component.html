@@ -1,0 +1,13 @@
+<div class="card" *ngIf="delivery">
+  <div *ngIf="delivery.name">
+    <h2>{{delivery.name}}</h2>
+  </div>
+  <div *ngIf="delivery.address">
+    <h4>{{delivery.address}}</h4>
+  </div>
+  <div class="actions" *ngIf="delivery.id">
+    <a class="button b-green" [routerLink]="['delivery',delivery.id]">View</a>
+    <button class="button b-red" (click)="removeDelivery(delivery.id)" >Remove</button>
+  </div>
+</div>
+
