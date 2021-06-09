@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Delivery} from '../services/delivery.interface';
 import {DataService} from '../services/data.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-detail',
@@ -12,10 +11,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class DetailComponent implements OnInit {
   public delivery: Delivery;
   public isEdit: boolean;
-  public editForm: FormGroup;
 
-  constructor(protected activeRoute: ActivatedRoute, protected dataService: DataService, private fb: FormBuilder
-  ) {
+  constructor(protected activeRoute: ActivatedRoute, protected dataService: DataService) {
   }
 
   ngOnInit(): void {
@@ -23,25 +20,19 @@ export class DetailComponent implements OnInit {
 
   }
 
-  saveEdit(form: FormGroup): void {
-    this.dataService.edit$(this.delivery.id, form.value).subscribe(() => {
-      this.delivery = {...form.value, id: this.delivery.id};
+  saveEdit(newDelivery: Delivery): void {
+    this.dataService.edit$(this.delivery.id, newDelivery).subscribe(() => {
+      this.delivery = newDelivery;
       this.isEdit = false;
     });
   }
 
   cancelEdit(): void {
     this.isEdit = false;
-
   }
 
   setEdit(): void {
-    this.editForm = this.fb.group({
-      name: [this.delivery.name, [Validators.required, Validators.max(200)]],
-      address: [this.delivery.address, [Validators.required, Validators.max(300)]],
-    });
     this.isEdit = true;
-
   }
 
 }

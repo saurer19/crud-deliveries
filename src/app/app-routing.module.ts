@@ -4,6 +4,7 @@ import {DeliveryListComponent} from './delivery-list/delivery-list.component';
 import {DetailComponent} from './detail/detail.component';
 import {DeliveryResolver} from './services/delivery.resolver';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {CreateComponent} from './create/create.component';
 
 const routes: Routes = [
   {path: '', component: DeliveryListComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
       delivery: DeliveryResolver
     }
   },
+  {path: 'create', component: CreateComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}
 

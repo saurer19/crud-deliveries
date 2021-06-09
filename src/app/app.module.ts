@@ -8,6 +8,8 @@ import { DetailComponent } from './detail/detail.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CreateComponent } from './create/create.component';
+import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DetailComponent,
     DeliveryListComponent,
     NotFoundComponent,
+    CreateComponent,
+    DeliveryFormComponent,
   ],
   imports: [
     BrowserModule,

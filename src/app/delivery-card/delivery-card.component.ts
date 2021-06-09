@@ -14,8 +14,6 @@ export class DeliveryCardComponent {
   @Input() delivery: Delivery;
   @Output() emitDelete = new EventEmitter<number>();
 
-
-
   public removeDelivery(id): void {
     this.emitDelete.emit(id);
   }

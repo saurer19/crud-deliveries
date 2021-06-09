@@ -18,8 +18,6 @@ describe('DetailComponent', () => {
       imports: [
         RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
-        ReactiveFormsModule,
-        FormsModule
       ],
       providers: [{
         DataService,
@@ -51,30 +49,13 @@ describe('DetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('editing valid form values', () => {
-    component.setEdit();
-    fixture.detectChanges();
-    component.editForm.controls['name'].setValue('Testing Guy');
-    component.editForm.controls['address'].setValue('This is a real address');
-    expect(component.editForm.valid).toBeTruthy();
-  });
-  it('editing invalid form values', () => {
-    component.setEdit();
-    fixture.detectChanges();
-    component.editForm.controls['name'].setValue('');
-    component.editForm.controls['address'].setValue('This is a real address');
-    expect(component.editForm.valid).toBeFalsy();
-  });
 
-  it('edit valid form values', fakeAsync(() => {
-    spyOn(service, 'edit$').and.returnValue(of({}))
+
+  it('values should be updated after saving them', fakeAsync(() => {
+    spyOn(service, 'edit$').and.returnValue(of({}));
     component.setEdit();
     fixture.detectChanges();
-    component.editForm.controls['name'].setValue('Testing Guy');
-    component.editForm.controls['address'].setValue('This is a real address');
-    let button = fixture.debugElement.nativeElement.querySelector('#submit');
-    console.log(button)
-    button.click();
+    component.saveEdit({name: 'Testing Guy', address: 'This is a real address', id: 5});
     tick();
     expect(component.delivery.name).toBe('Testing Guy');
     expect(component.delivery.address).toBe('This is a real address');
